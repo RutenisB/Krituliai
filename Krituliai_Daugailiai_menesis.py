@@ -55,7 +55,7 @@ bars = ax.bar(daily["date"].astype(str), daily["intensity"], color='skyblue')
 ax.set_title(f"Kritulių kiekis per {today.strftime('%B')} mėnesį")
 ax.set_xlabel("Diena")
 ax.set_ylabel("Krituliai (mm)")
-plt.xticks(rotation=90)
+plt.xticks(rotation=0)
 
 # Pridedam stulpelių reikšmes virš jų
 for bar in bars:
