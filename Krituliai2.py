@@ -35,5 +35,5 @@ def gauti_kritulius():
 
 # Streamlit UI
 st.set_page_config(page_title="Kritulių skaičiuoklė")
-st.title("🌧️ Lietuvos kritulių kiekis šiandien")
+st.title("🌧️ Daugailių kritulių kiekis šiandien")
 st.write(gauti_kritulius())
