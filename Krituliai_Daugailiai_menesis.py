@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 
 # Nustatymai
 st.set_page_config(page_title="Kritulių grafikas")
-st.title("🌧️ Kritulių kiekis Lietuvoje – mėnesio grafikas")
+st.title("🌧️ Kritulių kiekis Daugailiuose – mėnesio grafikas")
 
 # Gauti duomenis
 url = "https://eismoinfo.lt/eismoinfo-backend/osi-info-table/55?pageNumber=0&pageSize=1000000"
