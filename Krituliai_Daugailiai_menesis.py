@@ -49,6 +49,9 @@ df = df[df["date"].between(today.replace(day=1).date(), today.date())]
 # Grupavimas pagal dieną
 daily = df.groupby("date").sum().reset_index()
 
+# Apskaičiuojam bendrą kritulių kiekį
+total_precipitation = daily["intensity"].sum()
+
 # Atvaizduojam grafike
 fig, ax = plt.subplots()
 bars = ax.bar(daily["date"].astype(str), daily["intensity"], color='skyblue')
@@ -60,16 +63,18 @@ plt.xticks(rotation=80)
 # Pridedam stulpelių reikšmes virš jų
 for bar in bars:
     height = bar.get_height()
-    ax.text(bar.get_x() + bar.get_width()/2, height, f'{height:.2f}', 
-            ha='center', va='bottom', fontsize=8, rotation=0)
+    ax.text(
+        bar.get_x() + bar.get_width() / 2,
+        height,
+        f'{height:.2f}',
+        ha='center',
+        va='bottom',
+        fontsize=8,
+        rotation=0
+    )
 
+# Atvaizduojam grafiką Streamlit'e
 st.pyplot(fig)
 
-
-
-# Pridedam stulpelių reikšmes virš jų
-for bar in bars:
-    height = bar.get_height()
-    ax.text(bar.get_x() + bar.get_width()/2, height, f'{height:.2f}', 
-            ha='center', va='bottom', fontsize=8, rotation=0)
-
+# Parodom bendrą kritulių kiekį kaip atskirą įrašą
+st.markdown(f"### 💧 Bendra mėnesio kritulių suma: **{total_precipitation:.2f} mm**")
