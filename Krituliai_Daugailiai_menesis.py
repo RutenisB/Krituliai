@@ -64,3 +64,16 @@ for bar in bars:
             ha='center', va='bottom', fontsize=8, rotation=0)
 
 st.pyplot(fig)
+
+
+
+# Pridedam stulpelių reikšmes virš jų
+for bar in bars:
+    height = bar.get_height()
+    ax.text(bar.get_x() + bar.get_width()/2, height, f'{height:.2f}', 
+            ha='center', va='bottom', fontsize=8, rotation=0)
+
+st.pyplot(fig)
+
+# Išvedam bendrą kritulių kiekį kaip atskirą įrašą po grafiku
+st.markdown(f"### 🌧️ Bendra kritulių suma per mėnesį: **{total_precipitation:.2f} mm**")
